@@ -445,7 +445,8 @@
   var body = encodeURIComponent(
     'Name: ' + name + '\n' +
     'Email: ' + email + '\n' +
-    'Service: ' + service + '\n' +
+    'Project type: ' + projectType + '
+' + + '\n' +
     'Budget: ' + budget + '\n\n' +
     'Project details:\n' + message
   );
