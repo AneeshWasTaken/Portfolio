@@ -456,3 +456,6 @@
 
   setStatus('ok', 'Your email app should open with your inquiry ready to send. Please press Send in your email app.');
 });
+ 
+  window.__siteReady = true;
+})();
