@@ -432,64 +432,27 @@
     names.forEach(function (n) { var f = form.elements[n]; if (f) f.setAttribute('aria-invalid', 'true'); });
   }
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    clearInvalid();
-    statusEl.className = 'form-status'; statusEl.textContent = '';
+ form.addEventListener('submit', function (e) {
+  e.preventDefault();
 
-    // Client-side checks (the server checks again).
-    var bad = [];
-    ['name', 'email', 'projectType', 'message'].forEach(function (n) {
-      var f = form.elements[n];
-      if (!f.value.trim() || (f.type === 'email' && !f.checkValidity()) || (n === 'message' && f.value.trim().length < 10)) bad.push(n);
-    });
-    if (bad.length) {
-      markInvalid(bad);
-      form.elements[bad[0]].focus();
-      setStatus('err', 'Please check the highlighted fields: name, a valid email, project type and a few details (at least 10 characters).');
-      return;
-    }
+  var name = form.elements.name.value.trim();
+  var email = form.elements.email.value.trim();
+  var service = form.elements.service.value;
+  var budget = form.elements.budget.value;
+  var message = form.elements.message.value.trim();
 
-    var payload = {};
-    ['name', 'email', 'projectType', 'budget', 'message', 'company'].forEach(function (n) { payload[n] = form.elements[n].value; });
+  var subject = encodeURIComponent('Portfolio Inquiry - ' + name);
+  var body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Service: ' + service + '\n' +
+    'Budget: ' + budget + '\n\n' +
+    'Project details:\n' + message
+  );
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-    var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
-    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 15000);
+  window.location.href =
+    'mailto:workwithaneeshrawat@gmail.com?subject=' +
+    subject + '&body=' + body;
 
-    fetch(form.getAttribute('action'), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload),
-      signal: ctrl ? ctrl.signal : undefined
-    })
-      .then(function (r) {
-        return r.json().catch(function () { return null; }).then(function (data) { return { status: r.status, data: data }; });
-      })
-      .then(function (res) {
-        // Success is only ever shown when the server confirms it.
-        if (res.status === 200 && res.data && res.data.ok === true) {
-          form.reset();
-          setStatus('ok', 'Thanks, your inquiry was sent. I will get back to you by email.');
-        } else if (res.status === 400 && res.data && res.data.fields) {
-          markInvalid(Object.keys(res.data.fields));
-          setStatus('err', Object.keys(res.data.fields).map(function (k) { return res.data.fields[k]; }).join(' '));
-        } else if (res.status === 503 && res.data && res.data.error === 'not_configured') {
-          setStatus('err', 'The inquiry form is not connected yet, so nothing was sent. Please use email, Discord or WhatsApp above.');
-        } else {
-          setStatus('err', 'Your message could not be sent. Please try again, or use email, Discord or WhatsApp above.');
-        }
-      })
-      .catch(function () {
-        setStatus('err', 'Could not reach the server, so nothing was sent. Please check your connection or use email, Discord or WhatsApp above.');
-      })
-      .then(function () {
-        clearTimeout(timer);
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send inquiry';
-      });
-  });
-
-  window.__siteReady = true;
-})();
+  setStatus('ok', 'Your email app should open with your inquiry ready to send. Please press Send in your email app.');
+});
