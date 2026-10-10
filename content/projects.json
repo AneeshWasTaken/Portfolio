@@ -1,0 +1,84 @@
+{
+  "_help": "Edit this file to manage your portfolio. See README.md. Newest projects go at the TOP of the list. Delete a project by removing its whole { ... } block. Set \"placeholder\": false (or delete that line) on real projects.",
+  "categories": [
+    { "id": "reels", "label": "Reels & Shorts" },
+    { "id": "cinematic", "label": "Cinematic Edits" },
+    { "id": "gaming", "label": "Gaming Edits" },
+    { "id": "motion", "label": "Motion Graphics" },
+    { "id": "other", "label": "Other Projects" }
+  ],
+  "projects": [
+    {
+      "id": "placeholder-reel",
+      "placeholder": true,
+      "title": "Sample Reel Edit",
+      "category": "reels",
+      "description": "Placeholder card. Replace it with a short-form edit: fast cuts, captions and sound design.",
+      "software": ["CapCut Mobile"],
+      "aspect": "9:16",
+      "thumbnail": "",
+      "preview": "",
+      "video": ""
+    },
+    {
+      "id": "placeholder-cinematic",
+      "placeholder": true,
+      "title": "Sample Cinematic Edit",
+      "category": "cinematic",
+      "description": "Placeholder card. Replace it with a cinematic piece that shows off mood, pacing and colour.",
+      "software": ["DaVinci Resolve"],
+      "aspect": "16:9",
+      "thumbnail": "",
+      "preview": "",
+      "video": ""
+    },
+    {
+      "id": "placeholder-gaming",
+      "placeholder": true,
+      "title": "Sample Gaming Montage",
+      "category": "gaming",
+      "description": "Placeholder card. Replace it with a highlight reel or montage.",
+      "software": [],
+      "aspect": "16:9",
+      "thumbnail": "",
+      "preview": "",
+      "video": ""
+    },
+    {
+      "id": "placeholder-motion",
+      "placeholder": true,
+      "title": "Sample Motion Graphics",
+      "category": "motion",
+      "description": "Placeholder card. Replace it with animated text, typography or effects work.",
+      "software": [],
+      "aspect": "16:9",
+      "thumbnail": "",
+      "preview": "",
+      "video": ""
+    },
+    {
+      "id": "placeholder-short",
+      "placeholder": true,
+      "title": "Sample Short-Form Edit",
+      "category": "reels",
+      "description": "Placeholder card. Add as many projects as you like; the grid adjusts automatically.",
+      "software": [],
+      "aspect": "9:16",
+      "thumbnail": "",
+      "preview": "",
+      "video": ""
+    },
+    {
+      "id": "placeholder-other",
+      "placeholder": true,
+      "title": "Sample Other Project",
+      "category": "other",
+      "description": "Placeholder card. Use this category for anything that does not fit the others.",
+      "software": [],
+      "aspect": "16:9",
+      "thumbnail": "",
+      "preview": "",
+      "video": ""
+    }
+  ]
+}

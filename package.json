@@ -1,0 +1,14 @@
+{
+  "name": "aneesh-rawat-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio website for Aneesh Rawat, Video Editor & Visual Storyteller. No dependencies.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "add-project": "node scripts/add-project.mjs",
+    "check": "node scripts/validate.mjs",
+    "test": "node scripts/validate.mjs && node scripts/test-api.mjs",
+    "set-domain": "node scripts/set-domain.mjs"
+  },
+  "engines": { "node": ">=18" }
+}
