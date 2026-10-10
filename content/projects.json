@@ -9,16 +9,16 @@
   ],
   "projects": [
     {
-      "id": "placeholder-reel",
-      "placeholder": true,
-      "title": "Sample Reel Edit",
+      "id": "Motion Graphic",
+      "placeholder": false,
+      "title": "Motion Graphic Edit",
       "category": "reels",
-      "description": "Placeholder card. Replace it with a short-form edit: fast cuts, captions and sound design.",
+      "description": "Fast cuts, clean captions and sound design",
       "software": ["CapCut Mobile"],
       "aspect": "9:16",
       "thumbnail": "",
       "preview": "",
-      "video": ""
+      "video": "https://youtube.com/shorts/yuCmR2i3rBY?feature=share"
     },
     {
       "id": "placeholder-cinematic",
