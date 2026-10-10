@@ -437,7 +437,7 @@
 
   var name = form.elements.name.value.trim();
   var email = form.elements.email.value.trim();
-  var service = form.elements.service.value;
+  var projectType = form.elements.projectType.value;
   var budget = form.elements.budget.value;
   var message = form.elements.message.value.trim();
 
