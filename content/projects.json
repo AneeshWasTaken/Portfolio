@@ -21,16 +21,16 @@
       "video": "https://youtube.com/shorts/yuCmR2i3rBY?feature=share"
     },
     {
-      "id": "placeholder-cinematic",
-      "placeholder": true,
-      "title": "Sample Cinematic Edit",
-      "category": "cinematic",
-      "description": "Placeholder card. Replace it with a cinematic piece that shows off mood, pacing and colour.",
+      "id": "Reelos & Shorts",
+      "placeholder": false,
+      "title": "Sample Reel Edit",
+      "category": "Reels",
+      "description": "Fast cuts, clean captions and sound design.",
       "software": ["DaVinci Resolve"],
-      "aspect": "16:9",
+      "aspect": "9:16",
       "thumbnail": "",
       "preview": "",
-      "video": ""
+      "video": "https://youtube.com/shorts/glCqJheO8pc?feature=share"
     },
     {
       "id": "placeholder-gaming",
