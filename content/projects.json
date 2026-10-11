@@ -9,9 +9,9 @@
   ],
   "projects": [
     {
-      "id": "Sample Reel Edit",
+      "id": "Reels & Shorts",
       "placeholder": false,
-      "title": "Motion Graphic Edit",
+      "title": "Sample Reel Edit",
       "category": "reels",
       "description": "Fast cuts, clean captions and sound design",
       "software": ["CapCut Mobile"],
@@ -21,10 +21,10 @@
       "video": "https://youtube.com/shorts/yuCmR2i3rBY?feature=share"
     },
     {
-      "id": "Reelos & Shorts",
+      "id": "Reels & Shorts",
       "placeholder": false,
       "title": "Sample Reel Edit",
-      "category": "Reels",
+      "category": "reels",
       "description": "Fast cuts, clean captions and sound design.",
       "software": ["DaVinci Resolve"],
       "aspect": "9:16",
