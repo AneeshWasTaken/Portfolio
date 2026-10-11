@@ -441,15 +441,16 @@
   var budget = form.elements.budget.value;
   var message = form.elements.message.value.trim();
 
+ 
   var subject = encodeURIComponent('Portfolio Inquiry - ' + name);
   var body = encodeURIComponent(
     'Name: ' + name + '\n' +
     'Email: ' + email + '\n' +
-    'Project type: ' + projectType + '
-' + + '\n' +
+    'Project type: ' + projectType + '\n' +
     'Budget: ' + budget + '\n\n' +
     'Project details:\n' + message
   );
+
 
   window.location.href =
     'mailto:workwithaneeshrawat@gmail.com?subject=' +
