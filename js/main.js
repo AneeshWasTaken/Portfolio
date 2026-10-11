@@ -432,32 +432,49 @@
     names.forEach(function (n) { var f = form.elements[n]; if (f) f.setAttribute('aria-invalid', 'true'); });
   }
 
- form.addEventListener('submit', function (e) {
-  e.preventDefault();
+  var WHATSAPP_NUMBER = '918130359742'; // country code + number, no "+" or spaces
 
-  var name = form.elements.name.value.trim();
-  var email = form.elements.email.value.trim();
-  var projectType = form.elements.projectType.value;
-  var budget = form.elements.budget.value;
-  var message = form.elements.message.value.trim();
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearInvalid();
 
- 
-  var subject = encodeURIComponent('Portfolio Inquiry - ' + name);
-  var body = encodeURIComponent(
-    'Name: ' + name + '\n' +
-    'Email: ' + email + '\n' +
-    'Project type: ' + projectType + '\n' +
-    'Budget: ' + budget + '\n\n' +
-    'Project details:\n' + message
-  );
+    // Spam trap: real visitors never fill this hidden field
+    if (form.elements.company && form.elements.company.value) return;
 
+    var name = form.elements.name.value.trim();
+    var email = form.elements.email.value.trim();
+    var projectType = form.elements.projectType.value;
+    var budget = form.elements.budget.value.trim();
+    var message = form.elements.message.value.trim();
 
-  window.location.href =
-    'mailto:workwithaneeshrawat@gmail.com?subject=' +
-    subject + '&body=' + body;
+    var bad = [];
+    if (!name) bad.push('name');
+    if (!email || email.indexOf('@') < 1) bad.push('email');
+    if (!projectType) bad.push('projectType');
+    if (message.length < 10) bad.push('message');
+    if (bad.length) {
+      markInvalid(bad);
+      form.elements[bad[0]].focus();
+      setStatus('err','Please fill in your name, a valid email, a project type and a few details (at least 10 characters).');
+      return;
+    }
 
-  setStatus('ok', 'Your email app should open with your inquiry ready to send. Please press Send in your email app.');
-});
+    var text =
+      'Hi Aneesh, I found you through your portfolio.\n\n' +
+      '*Name:* ' + name + '\n' +
+      '*Email:* ' + email + '\n' +
+      '*Project type:* ' + projectType + '\n' +
+      '*Budget:* ' + (budget || 'Not specified') + '\n\n' +
+      '*Project details:*\n' + message;
+
+    var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
+
+    // Open in a new tab; fall back to same-tab if the popup is blocked
+    var win = window.open(url, '_blank', 'noopener');
+    if (!win) window.location.href = url;
+
+    setStatus('ok', 'Opening WhatsApp with your inquiry ready to send. Please press Send in WhatsApp.');
+  });
  
   window.__siteReady = true;
 })();
