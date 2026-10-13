@@ -33,16 +33,16 @@
       "video": "https://youtube.com/shorts/1ULd064K-lc"
     },
     {
-      "id": "placeholder-gaming",
+      "id": "Reels & Shorts",
       "placeholder": true,
-      "title": "Sample Gaming Montage",
-      "category": "gaming",
-      "description": "Placeholder card. Replace it with a highlight reel or montage.",
-      "software": [],
-      "aspect": "16:9",
+      "title": "Sample Reel Edit",
+      "category": "reels",
+      "description": "Fast cuts, clean captions and sound design.",
+      "software": [Premier Pro],
+      "aspect": "9:16",
       "thumbnail": "",
       "preview": "",
-      "video": ""
+      "video": "https://youtube.com/shorts/-0U1f9tpvcA?feature=share"
     },
     {
       "id": "placeholder-motion",
